@@ -22,10 +22,11 @@ public class main {
             try{
                 a = cal.saisieEntier();
                 saisie = true;
-
-            }catch (DepassementCapacitesException e){
+            //Exception si l'utilisateur choisie un entier trop grand
+            } catch (DepassementCapacitesException e){
                 System.err.println(e.getMessage());
                 saisie = false;
+            // Exception si l'utilisateur saisie autre chose qu'un entier
             } catch (Exception e) {
                 System.err.println("Saisie incorrecte. Réessayez...");
                 saisie = false;
@@ -48,7 +49,11 @@ public class main {
                 try{
                     b = cal.saisieEntier();
                     saisie = true;
-
+                //Exception si l'utilisateur choisie un entier trop grand
+                } catch (DepassementCapacitesException e){
+                    System.err.println(e.getMessage());
+                    saisie = false;
+                // Exception si l'utilisateur saisie autre chose qu'un entier
                 } catch (Exception e){
                     System.err.println("Saisie incorrecte. Réessayez...");
                     saisie = false;
