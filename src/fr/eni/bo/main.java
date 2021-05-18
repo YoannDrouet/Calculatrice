@@ -1,5 +1,7 @@
 package fr.eni.bo;
 
+import fr.eni.exception.DepassementCapacitesException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -21,7 +23,10 @@ public class main {
                 a = cal.saisieEntier();
                 saisie = true;
 
-            } catch (Exception e){
+            }catch (DepassementCapacitesException e){
+                System.err.println(e.getMessage());
+                saisie = false;
+            } catch (Exception e) {
                 System.err.println("Saisie incorrecte. Réessayez...");
                 saisie = false;
             }

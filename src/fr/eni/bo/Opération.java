@@ -20,7 +20,7 @@ public class Opération {
     public int ajouter(int a, int b) throws DepassementCapacitesException{
         long c = (long)a+(long)b;
         if (c>(long)2147483467 || c<(long)-2147483468){
-            throw new DepassementCapacitesException("Capacité maximale dépassé");
+            throw new DepassementCapacitesException("Capacité maximale dépassée");
         }
         return (int) c;
     }
@@ -35,7 +35,7 @@ public class Opération {
     public int soustraire(int a, int b) throws DepassementCapacitesException{
         long c =(long) a- (long) b;
         if (c>(long)2147483467 || c<(long)-2147483468){
-            throw new DepassementCapacitesException("Capacité maximale dépassé");
+            throw new DepassementCapacitesException("Capacité maximale dépassée");
         }
         return (int) c;
     }
@@ -50,7 +50,7 @@ public class Opération {
     public int multiplier(int a, int b) throws DepassementCapacitesException{
         long c = (long)a*(long)b;
         if (c>(long)2147483467 || c<(long)-2147483468){
-            throw new DepassementCapacitesException("Capacité maximale dépassé");
+            throw new DepassementCapacitesException("Capacité maximale dépassée");
         }
         return (int) c;
     }
@@ -60,11 +60,14 @@ public class Opération {
      * @return un entier
      * @throws InputMismatchException
      */
-    public int saisieEntier() throws InputMismatchException {
+    public int saisieEntier() throws Exception {
         Scanner scan = new Scanner(System.in);
         System.out.println("Saisissez un entier");
-        int a = scan.nextInt();
-        return a;
+        long a = scan.nextLong();
+        if (a > Integer.MAX_VALUE || a < Integer.MIN_VALUE){
+            throw new DepassementCapacitesException("Capacité maximale dépassée");
+        }
+        return (int)a;
     }
 
     /**
